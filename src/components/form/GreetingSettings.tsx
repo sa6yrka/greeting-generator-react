@@ -1,9 +1,9 @@
-import { SectionHeader } from './SectionHeader'
+import { SectionHeader } from '../ui/SectionHeader'
 import { Globe, ImageIcon } from 'lucide-react'
-import type { Language } from '../types/language'
-import { LANGUAGES } from '../constants/languages'
+import type { Language } from '../../types/language'
+import { LANGUAGES } from '../../constants/languages'
 import { ToneSelector } from './ToneSelector'
-import type { Tone } from '../types/tone'
+import type { Tone } from '../../types/tone'
 
 interface IExtraDetailsSectionProps {
   tone: Tone

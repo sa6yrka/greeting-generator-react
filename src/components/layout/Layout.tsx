@@ -1,5 +1,5 @@
-import { Editor } from './Editor'
-import { Result } from './Result'
+import { Editor } from '../editor/Editor'
+import { Result } from '../result/Result'
 import { HeaderLayout } from './HeaderLayout'
 import { useState } from 'react'
 

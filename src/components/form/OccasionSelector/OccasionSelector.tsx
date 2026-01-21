@@ -1,7 +1,7 @@
 import { OccasionButton } from './OccasionButton'
 import { Cake, Snowflake } from 'lucide-react'
-import { Occasion } from '../types/occasion'
-import { SectionHeader } from './SectionHeader'
+import { Occasion } from '../../../types/occasion'
+import { SectionHeader } from '../../ui/SectionHeader'
 
 interface IOccasionSelectorProps {
   occasion: Occasion

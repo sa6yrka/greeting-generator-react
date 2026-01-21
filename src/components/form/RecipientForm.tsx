@@ -1,6 +1,6 @@
 import { Calendar, User } from 'lucide-react'
 import { InterestsField } from './InterestsField'
-import { SectionHeader } from './SectionHeader'
+import { SectionHeader } from '../ui/SectionHeader'
 
 interface IRecipientFormProps {
   age: string,
