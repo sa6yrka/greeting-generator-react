@@ -1,28 +1,31 @@
 import { useState } from 'react'
-import { OccasionType } from '../types/occasionType'
-import { ToneType } from '../types/toneType'
-import type { LanguageType } from '../types/languageType'
-import { generateGreeting } from '../services/gemini'
+import { Occasion } from '../types/occasion'
+import { Tone } from '../types/tone'
+import type { Language } from '../types/language'
+import { generateGreeting } from '../services/gemini/generateGreeting'
 import { OccasionSelector } from './OccasionSelector'
 import { RecipientForm } from './RecipientForm'
 import { GreetingSettings } from './GreetingSettings'
 import { GenerateButton } from './GenerateButton'
 import { Sparkles } from 'lucide-react'
+import { generateGreetingImage } from '../services/gemini/generateGreetingImage'
 
 interface IEditorProps {
   loading: boolean
   setLoading: (loading: boolean) => void
   setGeneratedText: (text: string) => void
+  setImageUrl: (url: string | null) => void
 }
 
-export const Editor = ({ loading, setLoading, setGeneratedText }: IEditorProps) => {
-  const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
+export const Editor = ({ loading, setLoading, setGeneratedText, setImageUrl }: IEditorProps) => {
+  const [occasion, setOccasion] = useState<Occasion>(Occasion.BIRTHDAY)
   const [name, setName] = useState<string>('')
   const [age, setAge] = useState<string>('')
   const [interests, setInterests] = useState<string>('')
-  const [tone, setTone] = useState<ToneType>(ToneType.FRIENDLY)
-  const [language, setLanguage] = useState<LanguageType>('Русский')
+  const [tone, setTone] = useState<Tone>(Tone.FRIENDLY)
+  const [language, setLanguage] = useState<Language>('Русский')
   const [error, setError] = useState<string | null>(null)
+  const [isImageEnabled, setIsImageEnabled] = useState<boolean>(false)
 
   const handleGenerate = async (): Promise<void> => {
     if (!name.trim()) {
@@ -33,10 +36,23 @@ export const Editor = ({ loading, setLoading, setGeneratedText }: IEditorProps) 
     setError(null)
     setLoading(true)
     setGeneratedText('')
+    setImageUrl(null)
 
     try {
-      const result = await generateGreeting(occasion, name, age, interests, tone, language)
-      setGeneratedText(result)
+      const tasks: Promise<any>[] = [generateGreeting(occasion, name, age, interests, tone, language)]
+
+      if (isImageEnabled) {
+        tasks.push(generateGreetingImage(occasion, tone, language))
+      }
+
+      const results = await Promise.all(tasks)
+
+      const textResult = results[0]
+      setGeneratedText(textResult)
+
+      if (isImageEnabled && results[1]) {
+        setImageUrl(results[1])
+      }
     } catch (error: any) {
       setError(error.message || 'Произошла ошибка.')
     } finally {
@@ -58,6 +74,8 @@ export const Editor = ({ loading, setLoading, setGeneratedText }: IEditorProps) 
       <GreetingSettings
         language={language} setLanguage={setLanguage}
         tone={tone} setTone={setTone}
+        isImageEnabled={isImageEnabled}
+        setIsImageEnabled={setIsImageEnabled}
       />
 
       <GenerateButton isDisabled={loading} onClick={handleGenerate}>

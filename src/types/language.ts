@@ -1,4 +1,4 @@
-export type LanguageType =
+export type Language =
   'Русский'
   | 'Қазақ тілі'
   | 'Беларуская'

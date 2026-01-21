@@ -1,4 +1,4 @@
-export enum ToneType {
+export enum Tone {
   FRIENDLY = 'Дружеский',
   OFFICIAL = 'Официальный',
   TOUCHING = 'Трогательный',

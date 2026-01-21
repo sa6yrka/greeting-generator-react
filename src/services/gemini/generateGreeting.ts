@@ -1,17 +1,16 @@
-import { GoogleGenAI } from '@google/genai'
-import { ToneType } from '../types/toneType'
-import type { OccasionType } from '../types/occasionType'
-import type { LanguageType } from '../types/languageType'
+import { Tone } from '../../types/tone'
+import type { Occasion } from '../../types/occasion'
+import type { Language } from '../../types/language'
+import { gemini } from '../../config/gemini'
 
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY })
 
 export const generateGreeting = async (
-  occasion: OccasionType,
+  occasion: Occasion,
   name: string,
   age: string,
   interests: string,
-  tone: ToneType,
-  language: LanguageType,
+  tone: Tone,
+  language: Language,
 ): Promise<string> => {
   const prompt = `
       Напиши уникальное поздравление на языке: ${language}.
@@ -38,16 +37,16 @@ export const generateGreeting = async (
       - Язык ответа СТРОГО: ${language}.
     `
 
-  const response = await ai.models.generateContent({
+  const response = await gemini.models.generateContent({
     model: 'gemini-2.5-flash',
     contents: prompt,
     config: {
-      temperature: tone === ToneType.ADULT ? 0.9 : 0.8,
+      temperature: tone === Tone.ADULT ? 0.9 : 0.8,
     },
   })
 
   if (!response.text) {
-      throw new Error('Не удалось сгенерировать текст')
+    throw new Error('Не удалось сгенерировать текст')
   }
 
   return response.text.trim()

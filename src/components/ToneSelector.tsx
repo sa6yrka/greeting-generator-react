@@ -1,12 +1,12 @@
-import { ToneType } from '../types/toneType'
+import { Tone } from '../types/tone'
 
 interface IToneSelectorProps {
-  selectedTone: ToneType
-  setTone: (selectedTone: ToneType) => void
+  selectedTone: Tone
+  setTone: (selectedTone: Tone) => void
 }
 
 export const ToneSelector = ({ selectedTone, setTone }: IToneSelectorProps) => {
-  const tones = Object.values(ToneType)
+  const tones = Object.values(Tone)
 
   return (
     <div className='flex flex-wrap gap-3'>

@@ -1,18 +1,20 @@
 import { SectionHeader } from './SectionHeader'
-import { Globe } from 'lucide-react'
-import type { LanguageType } from '../types/languageType'
+import { Globe, ImageIcon } from 'lucide-react'
+import type { Language } from '../types/language'
 import { LANGUAGES } from '../constants/languages'
 import { ToneSelector } from './ToneSelector'
-import type { ToneType } from '../types/toneType'
+import type { Tone } from '../types/tone'
 
 interface IExtraDetailsSectionProps {
-  tone: ToneType
-  language: LanguageType
-  setTone: (tone: ToneType) => void
-  setLanguage: (language: LanguageType) => void
+  tone: Tone
+  language: Language
+  isImageEnabled: boolean
+  setTone: (tone: Tone) => void
+  setLanguage: (language: Language) => void
+  setIsImageEnabled: (isImageEnabled: boolean) => void
 }
 
-export const GreetingSettings = ({ tone, language, setTone, setLanguage }: IExtraDetailsSectionProps) => {
+export const GreetingSettings = ({ tone, language, isImageEnabled, setTone, setLanguage, setIsImageEnabled }: IExtraDetailsSectionProps) => {
   return (
     <section className='space-y-4'>
       <SectionHeader step={3} title='Настройки' />
@@ -28,7 +30,7 @@ export const GreetingSettings = ({ tone, language, setTone, setLanguage }: IExtr
             </div>
             <select
               value={language} id='languages'
-              onChange={(e) => setLanguage(e.target.value as LanguageType)}
+              onChange={(e) => setLanguage(e.target.value as Language)}
               className='block w-full pl-9 pr-8 py-3 bg-white border-2 border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-purple-100 focus:border-purple-500 transition-all appearance-none cursor-pointer'
             >
               {LANGUAGES.map((lang) => (
@@ -45,6 +47,26 @@ export const GreetingSettings = ({ tone, language, setTone, setLanguage }: IExtr
             </div>
           </div>
         </div>
+      </div>
+
+      <div className='flex items-center pt-2 sm:pt-6'>
+        <label
+          className={`
+            relative flex items-center p-3 rounded-xl border-2 cursor-pointer w-full h-13 transition-all duration-200 select-none
+            ${isImageEnabled ? 'border-purple-500 bg-purple-50' : 'border-gray-100 bg-white hover:border-purple-200'}
+          `}
+        >
+          <input
+            type='checkbox'
+            className='w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500 accent-purple-600'
+            checked={isImageEnabled}
+            onChange={(e) => setIsImageEnabled(e.target.checked)}
+          />
+          <span className={`ml-3 text-sm font-medium ${isImageEnabled ? 'text-purple-700' : 'text-gray-700'}`}>
+              Сгенерировать открытку
+            </span>
+          {isImageEnabled && <ImageIcon className='w-4 h-4 ml-auto text-purple-600' />}
+        </label>
       </div>
     </section>
   )

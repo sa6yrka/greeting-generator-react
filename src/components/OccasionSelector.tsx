@@ -1,11 +1,11 @@
 import { OccasionButton } from './OccasionButton'
 import { Cake, Snowflake } from 'lucide-react'
-import { OccasionType } from '../types/occasionType'
+import { Occasion } from '../types/occasion'
 import { SectionHeader } from './SectionHeader'
 
 interface IOccasionSelectorProps {
-  occasion: OccasionType
-  setOccasion: (value: OccasionType) => void
+  occasion: Occasion
+  setOccasion: (value: Occasion) => void
 }
 
 export const OccasionSelector = ({ occasion, setOccasion }: IOccasionSelectorProps) => {
@@ -15,14 +15,14 @@ export const OccasionSelector = ({ occasion, setOccasion }: IOccasionSelectorPro
 
       <div className='grid grid-cols-2 gap-4'>
         <OccasionButton
-          icon={Cake} label={OccasionType.BIRTHDAY}
-          isSelected={occasion === OccasionType.BIRTHDAY}
-          onClick={() => setOccasion(OccasionType.BIRTHDAY)}
+          icon={Cake} label={Occasion.BIRTHDAY}
+          isSelected={occasion === Occasion.BIRTHDAY}
+          onClick={() => setOccasion(Occasion.BIRTHDAY)}
         />
         <OccasionButton
-          icon={Snowflake} label={OccasionType.NEW_YEAR}
-          isSelected={occasion === OccasionType.NEW_YEAR}
-          onClick={() => setOccasion(OccasionType.NEW_YEAR)}
+          icon={Snowflake} label={Occasion.NEW_YEAR}
+          isSelected={occasion === Occasion.NEW_YEAR}
+          onClick={() => setOccasion(Occasion.NEW_YEAR)}
         />
       </div>
     </section>

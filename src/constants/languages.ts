@@ -1,6 +1,6 @@
-import type { LanguageType } from '../types/languageType'
+import type { Language } from '../types/language'
 
-export const LANGUAGES: LanguageType[] = [
+export const LANGUAGES: Language[] = [
   'Русский',
   'Қазақ тілі',
   'Беларуская',
