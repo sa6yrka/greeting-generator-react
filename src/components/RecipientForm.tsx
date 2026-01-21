@@ -1,5 +1,6 @@
 import { Calendar, User } from 'lucide-react'
 import { InterestsField } from './InterestsField'
+import { SectionHeader } from './SectionHeader'
 
 interface IRecipientFormProps {
   age: string,
@@ -15,10 +16,7 @@ interface IRecipientFormProps {
 export const RecipientForm = ({ age, name, error, interests, setAge, setName, setError, setInterests, }: IRecipientFormProps) => {
   return (
     <section className='space-y-4'>
-      <h3 className='text-lg font-bold text-gray-900 flex items-center gap-2'>
-        <span className='flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs'>2</span>
-        О получателе
-      </h3>
+      <SectionHeader step={2} title='О получателе' />
 
       <div className='grid grid-cols-3 gap-4'>
         <div className='col-span-2 relative group'>

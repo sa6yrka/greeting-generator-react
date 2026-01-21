@@ -6,6 +6,7 @@ import type { LanguageType } from '../types/languageType'
 import { generateGreeting } from '../services/gemini'
 import { OccasionSelector } from './OccasionSelector'
 import { RecipientForm } from './RecipientForm'
+import { GreetingSettings } from './GreetingSettings'
 
 export const Editor = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -71,6 +72,8 @@ export const Editor = () => {
         setAge={setAge} setName={setName}
         setError={setError} setInterests={setInterests}
       />
+
+      <GreetingSettings />
 
       <div>
         {Object.values(ToneType).map((tone) => (

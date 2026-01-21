@@ -1,6 +1,7 @@
 import { OccasionButton } from './OccasionButton'
 import { Cake, Snowflake } from 'lucide-react'
 import { OccasionType } from '../types/occasionType'
+import { SectionHeader } from './SectionHeader'
 
 interface IOccasionSelectorProps {
   occasion: OccasionType
@@ -10,13 +11,7 @@ interface IOccasionSelectorProps {
 export const OccasionSelector = ({ occasion, setOccasion }: IOccasionSelectorProps) => {
   return (
     <section className='space-y-4'>
-      <div className='flex justify-between items-center'>
-        <h3 className='text-lg font-bold text-gray-900 flex items-center gap-2'>
-            <span
-              className='flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs'>1</span>
-          Выберите праздник
-        </h3>
-      </div>
+      <SectionHeader step={1} title="Выберите праздник" />
 
       <div className='grid grid-cols-2 gap-4'>
         <OccasionButton
