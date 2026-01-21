@@ -47,7 +47,7 @@ export const generateGreeting = async (
   })
 
   if (!response.text) {
-    throw new Error('Failed to generate text')
+      throw new Error('Не удалось сгенерировать текст')
   }
 
   return response.text.trim()

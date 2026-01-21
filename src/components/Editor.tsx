@@ -26,7 +26,7 @@ export const Editor = () => {
 
   const handleGenerate = async (): Promise<void> => {
     if (!name.trim()) {
-      setError('Please enter the recipient’s name.')
+      setError('Пожалуйста, введите имя получателя.')
       return
     }
 
@@ -38,7 +38,7 @@ export const Editor = () => {
       const result = await generateGreeting(occasion, name, age, interests, tone, language)
       setGeneratedText(result)
     } catch (error: any) {
-      setError(error.message || 'An error occurred.')
+      setError(error.message || 'Произошла ошибка.')
     } finally {
       setLoading(false)
     }
