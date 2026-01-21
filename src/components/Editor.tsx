@@ -19,14 +19,26 @@ export const Editor = () => {
 
   const [generatedText, setGeneratedText] = useState<string>('')
 
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
+
   const handleGenerate = async (): Promise<void> => {
-    if (!name.trim()) return
+    if (!name.trim()) {
+      setError('Please enter the recipient’s name.')
+      return
+    }
+
+    setError(null)
+    setLoading(true)
+    setGeneratedText('')
 
     try {
       const result = await generateGreeting(occasion, name, age, interests, tone, language)
       setGeneratedText(result)
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      setError(error.message || 'An error occurred.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -45,6 +57,8 @@ export const Editor = () => {
         <p>{language}</p>
 
         <p>{generatedText}</p>
+
+        <p>{error}</p>
       </div>
 
       <div>
@@ -107,7 +121,9 @@ export const Editor = () => {
         </select>
       </div>
 
-      <button onClick={handleGenerate}>Создать магию 🪄</button>
+      <button onClick={handleGenerate} disabled={loading}>
+        Создать магию 🪄
+      </button>
     </div>
   )
 }
