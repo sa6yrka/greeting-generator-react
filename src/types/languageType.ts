@@ -1,0 +1,10 @@
+export type LanguageType =
+  'Русский'
+  | 'Қазақ тілі'
+  | 'Беларуская'
+  | 'Українська'
+  | 'English'
+  | 'Deutsch'
+  | 'Español'
+  | 'Italiano'
+  | 'Français'
