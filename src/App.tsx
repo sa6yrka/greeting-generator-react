@@ -1,4 +1,5 @@
-import { Header, Layout } from './components'
+import { Header } from './components/Header'
+import { Layout } from './components/Layout'
 
 export const App = () => {
   return (

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { OccasionType } from '../types/occasionType'
+import { ToneType } from '../types/toneType'
 
 export const Editor = () => {
   const [occasion, setOccasion] = useState<OccasionType>(OccasionType.BIRTHDAY)
@@ -9,13 +10,19 @@ export const Editor = () => {
 
   const [interests, setInterests] = useState<string>('')
 
+  const [tone, setTone] = useState<ToneType>(ToneType.FRIENDLY)
+
   return (
     <div className='max-w-7xl mx-auto'>
       <div>
         <p>{occasion}</p>
+
         <p>{name}</p>
         <p>{age}</p>
-        <p>interests</p>
+
+        <p>{interests}</p>
+
+        <p>{tone}</p>
       </div>
 
       <div>
@@ -58,6 +65,18 @@ export const Editor = () => {
             onChange={(e) => setInterests(e.target.value)}
           ></textarea>
         </div>
+      </div>
+
+      <div>
+        {Object.values(ToneType).map((tone) => (
+          <button
+            key={tone}
+            type='button'
+            onClick={() => setTone(tone)}
+          >
+            {tone}
+          </button>
+        ))}
       </div>
     </div>
   )
