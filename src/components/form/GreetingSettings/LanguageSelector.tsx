@@ -1,6 +1,6 @@
 import { Globe } from 'lucide-react'
-import { LANGUAGES } from '../../constants/languages'
-import type { Language } from '../../types/language'
+import { LANGUAGES } from '../../../constants/languages'
+import type { Language } from '../../../types/language'
 
 interface ILanguageSelectorProps {
   language: Language

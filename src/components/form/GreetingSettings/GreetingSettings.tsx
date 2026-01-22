@@ -1,7 +1,7 @@
-import { SectionHeader } from '../ui/SectionHeader'
-import type { Language } from '../../types/language'
+import { SectionHeader } from '../../ui/SectionHeader'
+import type { Language } from '../../../types/language'
 import { ToneSelector } from './ToneSelector'
-import type { Tone } from '../../types/tone'
+import type { Tone } from '../../../types/tone'
 import { LanguageSelector } from './LanguageSelector'
 import { PostcardToggle } from './PostcardToggle'
 

@@ -1,4 +1,4 @@
-import { Tone } from '../../types/tone'
+import { Tone } from '../../../types/tone'
 
 interface IToneSelectorProps {
   selectedTone: Tone

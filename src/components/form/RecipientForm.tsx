@@ -1,5 +1,5 @@
 import { Calendar, User } from 'lucide-react'
-import { InterestsField } from './InterestsField'
+import { InterestsField } from './RecipientForm/InterestsField'
 import { SectionHeader } from '../ui/SectionHeader'
 
 interface IRecipientFormProps {
