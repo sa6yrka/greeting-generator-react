@@ -7,17 +7,10 @@ import { useGreetingStore } from '../store/useGreetingStore'
 
 export const Editor = () => {
   const {
-    occasion,
-    name,
-    age,
-    interests,
-    tone,
-    language,
-    isImageEnabled,
-    error,
-    loading,
-    setField,
-    generate,
+    occasion, name, age,
+    interests, tone, language,
+    isImageEnabled, error,
+    loading, setField, generate,
   } = useGreetingStore()
 
   return (
