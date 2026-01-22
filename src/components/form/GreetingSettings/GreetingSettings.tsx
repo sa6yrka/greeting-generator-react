@@ -5,7 +5,7 @@ import type { Tone } from '../../../types/tone'
 import { LanguageSelector } from './LanguageSelector'
 import { PostcardToggle } from './PostcardToggle'
 
-interface IExtraDetailsSectionProps {
+interface Props {
   tone: Tone
   language: Language
   isImageEnabled: boolean
@@ -14,7 +14,7 @@ interface IExtraDetailsSectionProps {
   setIsImageEnabled: (isImageEnabled: boolean) => void
 }
 
-export const GreetingSettings = ({ tone, language, isImageEnabled, setTone, setLanguage, setIsImageEnabled }: IExtraDetailsSectionProps) => {
+export const GreetingSettings = ({ tone, language, isImageEnabled, setTone, setLanguage, setIsImageEnabled }: Props) => {
   return (
     <section className='space-y-4'>
       <SectionHeader step={3} title='Настройки' />

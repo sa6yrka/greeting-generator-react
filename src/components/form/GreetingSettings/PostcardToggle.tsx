@@ -1,11 +1,11 @@
 import { ImageIcon } from 'lucide-react'
 
-interface IPostcardToggleProps {
+interface Props {
   isImageEnabled: boolean
   setIsImageEnabled: (value: boolean) => void
 }
 
-export const PostcardToggle = ({ isImageEnabled, setIsImageEnabled }: IPostcardToggleProps) => {
+export const PostcardToggle = ({ isImageEnabled, setIsImageEnabled }: Props) => {
   return (
     <div className='flex items-center pt-2 sm:pt-6'>
       <label

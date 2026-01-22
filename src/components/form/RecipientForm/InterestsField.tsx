@@ -1,11 +1,11 @@
 import { Heart } from 'lucide-react'
 
-interface IInterestsFieldProps {
+interface Props {
   interests: string
   setInterests: (interests: string) => void
 }
 
-export const InterestsField = ({ interests, setInterests }: IInterestsFieldProps) => {
+export const InterestsField = ({ interests, setInterests }: Props) => {
   return (
     <div className='relative group'>
       <label htmlFor='interests' className='block text-sm font-medium text-gray-700 mb-1 ml-1'>

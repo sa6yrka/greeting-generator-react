@@ -3,12 +3,12 @@ import { Cake, Snowflake } from 'lucide-react'
 import { Occasion } from '../../../types/occasion'
 import { SectionHeader } from '../../ui/SectionHeader'
 
-interface IOccasionSelectorProps {
+interface Props {
   occasion: Occasion
   setOccasion: (value: Occasion) => void
 }
 
-export const OccasionSelector = ({ occasion, setOccasion }: IOccasionSelectorProps) => {
+export const OccasionSelector = ({ occasion, setOccasion }: Props) => {
   return (
     <section className='space-y-4'>
       <SectionHeader step={1} title="Выберите праздник" />

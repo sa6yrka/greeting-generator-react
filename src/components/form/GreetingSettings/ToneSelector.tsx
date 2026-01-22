@@ -1,11 +1,11 @@
 import { Tone } from '../../../types/tone'
 
-interface IToneSelectorProps {
+interface Props {
   selectedTone: Tone
   setTone: (selectedTone: Tone) => void
 }
 
-export const ToneSelector = ({ selectedTone, setTone }: IToneSelectorProps) => {
+export const ToneSelector = ({ selectedTone, setTone }: Props) => {
   const tones = Object.values(Tone)
 
   return (

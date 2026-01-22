@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react'
 
-interface IGenerateButtonProps {
+interface Props {
   children: ReactNode
   isDisabled: boolean
   onClick: () => Promise<void>
 }
 
-export const GenerateButton = ({ children, isDisabled, onClick }: IGenerateButtonProps) => {
+export const GenerateButton = ({ children, isDisabled, onClick }: Props) => {
   return (
     <button
       onClick={onClick}

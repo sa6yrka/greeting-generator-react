@@ -2,12 +2,12 @@ import { Globe } from 'lucide-react'
 import { LANGUAGES } from '../../../constants/languages'
 import type { Language } from '../../../types/language'
 
-interface ILanguageSelectorProps {
+interface Props {
   language: Language
   setLanguage: (language: Language) => void
 }
 
-export const LanguageSelector = ({ language, setLanguage }: ILanguageSelectorProps) => {
+export const LanguageSelector = ({ language, setLanguage }: Props) => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-4 mt-4'>
       <div className='relative group'>
