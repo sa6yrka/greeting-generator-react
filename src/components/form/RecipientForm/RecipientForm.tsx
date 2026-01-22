@@ -12,7 +12,7 @@ interface Props {
   setInterests: (interests: string) => void,
 }
 
-export const RecipientForm = ({ age, name, error, interests, setAge, setName, setError, setInterests, }: Props) => {
+export const RecipientForm = ({ age, name, error, interests, setAge, setName, setInterests, }: Props) => {
   return (
     <section className='space-y-4'>
       <SectionHeader step={2} title='О получателе' />
@@ -27,10 +27,7 @@ export const RecipientForm = ({ age, name, error, interests, setAge, setName, se
             <input
               id='name' type='text'
               value={name} placeholder='Сабыржан'
-              onChange={(e) => {
-                setName(e.target.value)
-                if (error) setError(null)
-              }}
+              onChange={(e) => setName(e.target.value)}
               className={`
                 block w-full pl-9 pr-4 py-3 bg-white border-2 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-100 transition-all
                 ${error ? 'border-red-300 focus:border-red-500' : 'border-gray-100 focus:border-purple-500'}

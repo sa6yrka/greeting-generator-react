@@ -21,12 +21,11 @@ interface GreetingStore {
   imageUrl: string | null
 
   // actions
-  setField: <K extends keyof Omit<GreetingStore,
-    | 'setField'
-    | 'generate'
-  >>(
+  setField: <
+    K extends keyof Omit<GreetingStore, 'setField' | 'generate'>
+  >(
     key: K,
-    value: GreetingStore[K],
+    value: GreetingStore[K]
   ) => void
 
   generate: () => Promise<void>
@@ -48,7 +47,12 @@ export const useGreetingStore = create<GreetingStore>((set, get) => ({
   generatedText: '',
   imageUrl: null,
 
-  setField: (key, value) => set({ [key]: value }),
+  setField: (key, value) =>
+    set((state) => ({
+      ...state,
+      [key]: value,
+      error: state.error ? null : state.error,
+    })),
 
   generate: async () => {
     const {
@@ -66,7 +70,12 @@ export const useGreetingStore = create<GreetingStore>((set, get) => ({
       return
     }
 
-    set({ loading: true, error: null, generatedText: '', imageUrl: null })
+    set({
+      loading: true,
+      error: null,
+      generatedText: '',
+      imageUrl: null,
+    })
 
     try {
       const tasks: Promise<any>[] = [
