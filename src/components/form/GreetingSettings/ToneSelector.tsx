@@ -18,8 +18,8 @@ export const ToneSelector = ({ selectedTone, setTone }: Props) => {
             px-5 py-3 rounded-xl text-sm font-medium transition-all duration-200 border-2
             ${
             selectedTone === tone
-              ? 'border-purple-500 bg-purple-50 text-purple-700 shadow-md'
-              : 'border-gray-100 bg-white text-gray-500 hover:border-purple-200 hover:bg-purple-50/50'
+              ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-md'
+              : 'border-gray-100 bg-white text-gray-500 hover:border-blue-200 hover:bg-blue-50/50'
           }`}
         >
           {tone}

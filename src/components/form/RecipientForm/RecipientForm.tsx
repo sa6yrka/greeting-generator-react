@@ -22,15 +22,15 @@ export const RecipientForm = ({ age, name, error, interests, setAge, setName, se
           <label htmlFor='name' className='block text-sm font-medium text-gray-700 mb-1 ml-1'>Имя *</label>
           <div className='relative'>
             <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-              <User className='h-4 w-4 text-gray-400 group-focus-within:text-purple-500 transition-colors' />
+              <User className='h-4 w-4 text-gray-400 group-focus-within:text-blue-500 transition-colors' />
             </div>
             <input
               id='name' type='text'
               value={name} placeholder='Сабыржан'
               onChange={(e) => setName(e.target.value)}
               className={`
-                block w-full pl-9 pr-4 py-3 bg-white border-2 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-100 transition-all
-                ${error ? 'border-red-300 focus:border-red-500' : 'border-gray-100 focus:border-purple-500'}
+                block w-full pl-9 pr-4 py-3 bg-white border-2 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all
+                ${error ? 'border-red-300 focus:border-red-500' : 'border-gray-100 focus:border-blue-500'}
               `}
             />
           </div>
@@ -41,14 +41,14 @@ export const RecipientForm = ({ age, name, error, interests, setAge, setName, se
           <label htmlFor='age' className='block text-sm font-medium text-gray-700 mb-1 ml-1'>Возраст</label>
           <div className='relative'>
             <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-              <Calendar className='h-4 w-4 text-gray-400 group-focus-within:text-purple-500 transition-colors' />
+              <Calendar className='h-4 w-4 text-gray-400 group-focus-within:text-blue-500 transition-colors' />
             </div>
             <input
               min={1} max={130}
               type='number' id='age'
               value={age} placeholder='18'
               onChange={(e) => setAge(e.target.value)}
-              className='block w-full pl-9 pr-4 py-3 bg-white border-2 border-gray-100 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-100 focus:border-purple-500 transition-all'
+              className='block w-full pl-9 pr-4 py-3 bg-white border-2 border-gray-100 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all'
             />
           </div>
         </div>

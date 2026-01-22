@@ -14,12 +14,12 @@ export const LanguageSelector = ({ language, setLanguage }: Props) => {
         <label htmlFor='languages' className='block text-sm font-medium text-gray-700 mb-1 ml-1'>Язык</label>
         <div className='relative'>
           <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-            <Globe className='h-4 w-4 text-gray-400 group-focus-within:text-purple-500 transition-colors' />
+            <Globe className='h-4 w-4 text-gray-400 group-focus-within:text-blue-500 transition-colors' />
           </div>
           <select
             value={language} id='languages'
             onChange={(e) => setLanguage(e.target.value as Language)}
-            className='block w-full pl-9 pr-8 py-3 bg-white border-2 border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-purple-100 focus:border-purple-500 transition-all appearance-none cursor-pointer'
+            className='block w-full pl-9 pr-8 py-3 bg-white border-2 border-gray-100 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all appearance-none cursor-pointer'
           >
             {LANGUAGES.map((lang) => (
               <option key={lang} value={lang}>

@@ -27,13 +27,13 @@ export const Result = () => {
   return (
     <div className='lg:col-span-7 h-full'>
       <div
-        className='bg-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-purple-100/50 h-full min-h-100 flex flex-col relative overflow-hidden border border-purple-50'>
+        className='bg-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-blue-100/50 h-full min-h-100 flex flex-col relative overflow-hidden border border-blue-50'>
         <div className='flex justify-between items-center mb-6'>
           <h3 className='font-bold text-lg text-gray-900'>Ваше поздравление</h3>
           {generatedText && !loading && (
             <button
               onClick={handleCopy}
-              className='text-gray-400 hover:text-purple-600 transition-colors p-2 rounded-full hover:bg-purple-50'
+              className='text-gray-400 hover:text-blue-600 transition-colors p-2 rounded-full hover:bg-blue-50'
               title='Копировать'
             >
               {copied ? <Check className='w-5 h-5 text-green-500' /> : <Copy className='w-5 h-5' />}
@@ -44,19 +44,19 @@ export const Result = () => {
         <div className='grow flex flex-col'>
           {loading ? (
             <div className='grow flex flex-col items-center justify-center text-center space-y-4 animate-pulse'>
-              <div className='p-4 bg-purple-50 rounded-full'>
-                <Sparkles className='w-8 h-8 text-purple-400 animate-spin' />
+              <div className='p-4 bg-blue-50 rounded-full'>
+                <Sparkles className='w-8 h-8 text-blue-400 animate-spin' />
               </div>
               <p className='text-gray-400 text-sm'>ИИ придумывает магию...</p>
             </div>
           ) : generatedText || imageUrl ? (
             <div className='space-y-6 animate-in fade-in duration-500'>
               {imageUrl && (
-                <div className='rounded-2xl overflow-hidden shadow-md border border-purple-100'>
+                <div className='rounded-2xl overflow-hidden shadow-md border border-blue-100'>
                   <img src={imageUrl} alt='Generated Greeting Card' className='w-full h-auto object-cover' />
                 </div>
               )}
-              <div className='prose prose-purple max-w-none'>
+              <div className='prose prose-blue max-w-none'>
                 <p className='text-gray-700 text-lg leading-relaxed whitespace-pre-wrap'>{generatedText}</p>
               </div>
             </div>
